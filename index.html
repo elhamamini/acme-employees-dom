@@ -1,0 +1,53 @@
+<html>
+    <head>
+            <link rel="stylesheet" type="text/css" href="styles.css">
+
+    </head>
+    <body>
+        <div>
+            <h1>Acme Employees DOM</h1>
+            <div>Choose your three favorite employees.</div>
+            <div id='box-row'></div>
+        </div>
+
+    </body>
+    <script>
+           const employees = [
+    { id: 1, name: 'moe'},
+    { id: 2, name: 'larry'},
+    { id: 4, name: 'shep'},
+    { id: 3, name: 'curly'},
+    { id: 5, name: 'groucho'},
+    { id: 6, name: 'harpo'},
+    { id: 8, name: 'shep Jr.'},
+    { id: 99, name: 'lucy'}
+  ];
+  const boxRowElement=document.getElementById('box-row')
+        // const main=document.querySelector('box-row')
+        
+        employees.forEach(obj=>{
+
+            const employeeEl=document.createElement('div');
+            console.log(employeeEl)
+            employeeEl.classList.add('box');
+           
+            employeeEl.innerHTML=obj.name;
+    
+            employeeEl.id=obj.id
+           
+            boxRowElement.appendChild(employeeEl);
+
+        
+        employeeEl.addEventListener('click',(ev)=>{
+            console.log(ev.target)
+            // if box favorite exists remove it
+            // if it doesnt exist add it
+          ev.target.classList.toggle('box-favorite');
+          console.log(ev.target.id);
+            
+        })
+        })
+
+
+    </script>
+</html>
